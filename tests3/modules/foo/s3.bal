@@ -3,11 +3,11 @@ import ballerinax/aws.s3;
 
 public final s3:Client amazonS3Client = check intializeClient();
 
-public function create() returns error? {
+public isolated function create() returns error? {
     return createInternal();
 }
 
-function createInternal() returns error? {
+isolated function createInternal() returns error? {
     byte[] fileContent = [];
     return amazonS3Client->createObject(
                 "bucketName",
